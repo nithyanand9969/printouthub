@@ -9,5 +9,6 @@ import { SideBarComponent } from '../shared/side-bar/side-bar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'printouthub';
+ classNames = 'p-4 text-3xl'
 }
+
