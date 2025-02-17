@@ -12,5 +12,5 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 
 COPY --from=build /app/dist/printouthub/browser .
-EXPOSE 4200
+EXPOSE 80
 ENTRYPOINT ["nginx","-g","daemon off;"]
