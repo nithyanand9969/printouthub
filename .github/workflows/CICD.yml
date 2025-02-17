@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build docker image
         run: docker build -t nithyanandnadar/printouthub .
-      - name: Publish image to docker hun
+      - name: Publish image to docker hub
         run: docker push nithyanandnadar/printouthub:latest
     
   deploy:
