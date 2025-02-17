@@ -13,4 +13,4 @@ RUN rm -rf *
 
 COPY --from=build /app/dist/angular-app/browser .
 EXPOSE 4200
-ENTRYPOINT [ "nginx","-g","daemon off;" ]
+ENTRYPOINT ["nginx","-g","daemon off;"]
