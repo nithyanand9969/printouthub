@@ -27,7 +27,7 @@ jobs:
       - name: Delete old container
         run: docker rm -f angular-app-container
       - name: Run docker container
-        run: docker container -d -p 4000:4200 --name angular-app-container nithyanandnadar/printouthub
+        run: docker container -d -p 4200:4200 --name angular-app-container nithyanandnadar/printouthub
 
 
 

@@ -1,7 +1,16 @@
-FROM node:alpine3.18
+FROM node:20-alpine as build
+
 WORKDIR /app
-COPY package.json ./
+COPY package*.json .
 RUN npm install
 COPY . .
-EXPOSE 4000
-CMD ["npm","run","start"]
+RUN npm run build
+
+
+FROM nginx:1.23-alpine
+WORKDIR /usr/share/nginx/html/
+RUN rm -rf *
+
+COPY --from=build /app/dist/angular-app/browser .
+EXPOSE 4200
+ENTRYPOINT [ "nginx","-g","daemon off;" ]
